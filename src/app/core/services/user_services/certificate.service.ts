@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import apiKey from '../apiKey';
-import { Certificate } from './../../models/certificate.model';
-import { certificateRequest } from '../../models/certificateRequest.model';
+import { Certificate } from 'src/app/shared/models/certificate.model';
+import { certificateRequest } from 'src/app/shared/models/certificateRequest.model';
 @Injectable({
   providedIn: 'root',
 })

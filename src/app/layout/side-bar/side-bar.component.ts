@@ -1,14 +1,13 @@
 import { NotificationDetailsComponent } from './../../modules/components/dialogs/notification-details/notification-details.component';
-import { Notification } from '../../models/notification.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { NotificationService } from 'src/app/services/user_services/notification.service';
-import { UserService } from '../../services/user_services/user.service';
-import { User } from '../../models/user.model';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../../modules/home/pages/login/login.component';
+import { NotificationService } from 'src/app/core/services/user_services/notification.service';
+import { UserService } from 'src/app/core/services/user_services/user.service';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-side-bar',
@@ -83,9 +82,9 @@ export class SideBarComponent implements OnInit, OnDestroy {
       .subscribe((notifications) => {
         this.notifications = notifications;
         this.notifications.forEach((notif) => {
-          if (notif.status === 2) {
-            this.notificationCount++;
-          }
+          // if (notif.status === 2) {
+          //   this.notificationCount++;
+          // }
         });
       });
 

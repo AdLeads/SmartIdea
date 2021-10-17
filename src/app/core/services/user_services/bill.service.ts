@@ -1,9 +1,7 @@
-import { BillRequest } from './../../models/billRequest.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IProjects } from '../../models/projects.model';
-import { Bill } from '../../models/bill.model';
-import { Card } from '../../models/card.model';
+import { Bill } from 'src/app/shared/models/bill.model';
+import { BillRequest } from 'src/app/shared/models/billRequest.model';
 
 @Injectable({
   providedIn: 'root',

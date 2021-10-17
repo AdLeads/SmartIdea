@@ -1,16 +1,19 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Event } from '@angular/router';
-import { certificateRequest } from 'src/app/models/certificateRequest.model';
-import { CertificateService } from 'src/app/services/user_services/certificate.service';
 
 import {
   MatDialog,
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { DialogData } from '../../certificates/certificates.component';
-import {worker} from 'cluster';
+import { CertificateService } from 'src/app/core/services/user_services/certificate.service';
+import { certificateRequest } from 'src/app/shared/models/certificateRequest.model';
 @Component({
   selector: 'app-create-certificate',
   templateUrl: './create-certificate.component.html',
@@ -30,7 +33,7 @@ export class CreateCertificateComponent implements OnInit {
     public dialogRef: MatDialogRef<CreateCertificateComponent> // @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
-  edit=false;
+  edit = false;
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -50,49 +53,99 @@ export class CreateCertificateComponent implements OnInit {
   editCert(): void {
     this.form = this.fromBuilder.group({
       id: [0, [Validators.required]],
-      certificateName: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator, Validators.pattern(this.lettersPattern)]],
-      company: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator, Validators.pattern(this.lettersPattern)]],
-      expeditionDate: ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator]],
-      expirationDate:  ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator]],
-      credentialId: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(30), this.noWhitespaceValidator, Validators.pattern(this.idPattern)]],
-      credentialURL: ['', [Validators.required,  Validators.minLength(8), Validators.maxLength(74), this.noWhitespaceValidator, Validators.pattern(this.URLPattern)]],
-          });
+      certificateName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          this.noWhitespaceValidator,
+          Validators.pattern(this.lettersPattern),
+        ],
+      ],
+      company: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          this.noWhitespaceValidator,
+          Validators.pattern(this.lettersPattern),
+        ],
+      ],
+      expeditionDate: [
+        '',
+        [
+          Validators.required,
+          Validators.min(2020),
+          Validators.max(2029),
+          this.noWhitespaceValidator,
+        ],
+      ],
+      expirationDate: [
+        '',
+        [
+          Validators.required,
+          Validators.min(2020),
+          Validators.max(2029),
+          this.noWhitespaceValidator,
+        ],
+      ],
+      credentialId: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(30),
+          this.noWhitespaceValidator,
+          Validators.pattern(this.idPattern),
+        ],
+      ],
+      credentialURL: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(74),
+          this.noWhitespaceValidator,
+          Validators.pattern(this.URLPattern),
+        ],
+      ],
+    });
   }
 
-  get certificateName(){
+  get certificateName() {
     return this.form.get('certificateName');
   }
 
-  get company(){
+  get company() {
     return this.form.get('company');
   }
 
-  get expeditionDate(){
+  get expeditionDate() {
     return this.form.get('expeditionDate');
   }
 
-  get expirationDate(){
+  get expirationDate() {
     return this.form.get('expirationDate');
   }
 
-  get credentialId(){
+  get credentialId() {
     return this.form.get('credentialId');
   }
 
-  get credentialURL(){
+  get credentialURL() {
     return this.form.get('credentialURL');
   }
 
   public noWhitespaceValidator(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;
     const isValid = !isWhitespace;
-    return isValid ? null : { 'whitespace': true };
+    return isValid ? null : { whitespace: true };
   }
 
   public space(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;
     const isValid = !isWhitespace;
-    return isValid ? null : { 'whitespace': true };
+    return isValid ? null : { whitespace: true };
   }
 
   saveCertificate(): void {
@@ -101,7 +154,7 @@ export class CreateCertificateComponent implements OnInit {
       console.log(cert);
       this.createCertificate(cert);
     } else {
-      window.alert("ERROR: Datos vacios o inválidos");
+      window.alert('ERROR: Datos vacios o inválidos');
       //this.dialogRef.close();
     }
   }

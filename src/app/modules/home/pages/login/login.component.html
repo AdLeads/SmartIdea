@@ -9,7 +9,7 @@
     </div>
     <div class="row center-xs">
       <mat-card class="login-card">
-        <form [formGroup]="form" (ngSubmit)="login()">
+        <form [formGroup]="form">
           <mat-icon>account_circle</mat-icon>
           <mat-form-field class="form-input">
             <mat-label>Correo Electronico</mat-label>
@@ -32,11 +32,10 @@
             />
           </mat-form-field>
           <button
-            type="submit"
             mat-raised-button
             color="primary"
             class="form__button"
-            routerLink="/user/feed"
+            (click)="login()"
           >
             INGRESAR
           </button>
@@ -48,4 +47,3 @@
     </div>
   </div>
 </div>
-

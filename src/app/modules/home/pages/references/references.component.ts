@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ReferencesService } from '../../../../services/user_services/references.service';
-import { IProjects } from '../../../../models/projects.model';
+import { ReferencesService } from 'src/app/core/services/user_services/references.service';
+import { IProjects } from 'src/app/shared/models/projects.model';
 
 @Component({
   selector: 'app-references',

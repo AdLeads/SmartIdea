@@ -1,5 +1,3 @@
-import { CertificateService } from './../../../services/user_services/certificate.service';
-import { Certificate } from './../../../models/certificate.model';
 import {
   Component,
   EventEmitter,
@@ -9,11 +7,18 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { certificateRequest } from 'src/app/models/certificateRequest.model';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { CertificateComponent } from '../../home/pages/certificate/certificate.component';
 import { WarningDialogComponent } from '../dialogs/warning-dialog/warning-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { CertificateService } from 'src/app/core/services/user_services/certificate.service';
+import { certificateRequest } from 'src/app/shared/models/certificateRequest.model';
+import { Certificate } from 'src/app/shared/models/certificate.model';
 @Component({
   selector: 'app-certificate-content',
   templateUrl: './certificate-content.component.html',
@@ -26,7 +31,7 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
   userId: number = parseInt(localStorage.getItem('userId'));
   lettersPattern = '^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$';
   numPattern = '^-?[0-9]\\d*(\\.\\d{1,2})?$';
-  idPattern  = '[A-Za-zÁÉÍÓÚáéíóúñÑ0-9]{0,74}';
+  idPattern = '[A-Za-zÁÉÍÓÚáéíóúñÑ0-9]{0,74}';
   URLPattern = '^(http|https):[-a-zA-Z0-9+&@#/%?=~_|!:,.;]{0,}';
 
   constructor(
@@ -34,9 +39,7 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private certificatesService: CertificateService,
     public dialog: MatDialog
-  ) {
-
-  }
+  ) {}
   edit = false;
   destroyed = false;
   ngOnInit(): void {
@@ -61,51 +64,102 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
     this.edit = true;
     this.form = this.fromBuilder.group({
       id: [0, [Validators.required]],
-      certificateName: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator, Validators.pattern(this.lettersPattern)]],
-      company: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator, Validators.pattern(this.lettersPattern)]],
-      expeditionDate: ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator, Validators.pattern(this.numPattern)]],
-      expirationDate:  ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator, Validators.pattern(this.numPattern)]],
-      credentialId: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(30), this.noWhitespaceValidator, Validators.pattern(this.idPattern)]],
-      credentialURL: ['', [Validators.required,  Validators.minLength(8), Validators.maxLength(74), this.noWhitespaceValidator, Validators.pattern(this.URLPattern)]],
-     });
+      certificateName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          this.noWhitespaceValidator,
+          Validators.pattern(this.lettersPattern),
+        ],
+      ],
+      company: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          this.noWhitespaceValidator,
+          Validators.pattern(this.lettersPattern),
+        ],
+      ],
+      expeditionDate: [
+        '',
+        [
+          Validators.required,
+          Validators.min(2020),
+          Validators.max(2029),
+          this.noWhitespaceValidator,
+          Validators.pattern(this.numPattern),
+        ],
+      ],
+      expirationDate: [
+        '',
+        [
+          Validators.required,
+          Validators.min(2020),
+          Validators.max(2029),
+          this.noWhitespaceValidator,
+          Validators.pattern(this.numPattern),
+        ],
+      ],
+      credentialId: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(30),
+          this.noWhitespaceValidator,
+          Validators.pattern(this.idPattern),
+        ],
+      ],
+      credentialURL: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(74),
+          this.noWhitespaceValidator,
+          Validators.pattern(this.URLPattern),
+        ],
+      ],
+    });
   }
 
-  get certificateName(){
+  get certificateName() {
     return this.form.get('certificateName');
   }
 
-  get company(){
+  get company() {
     return this.form.get('company');
   }
 
-  get expeditionDate(){
+  get expeditionDate() {
     return this.form.get('expeditionDate');
   }
 
-  get expirationDate(){
+  get expirationDate() {
     return this.form.get('expirationDate');
   }
 
-  get credentialId(){
+  get credentialId() {
     return this.form.get('credentialId');
   }
 
-  get credentialURL(){
+  get credentialURL() {
     return this.form.get('credentialURL');
   }
 
   public noWhitespaceValidator(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;
     const isValid = !isWhitespace;
-    return isValid ? null : { 'whitespace': true };
+    return isValid ? null : { whitespace: true };
   }
 
   public space(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;
     const isValid = !isWhitespace;
-    return isValid ? null : { 'whitespace': true };
+    return isValid ? null : { whitespace: true };
   }
-
 
   fetchCertificate(id: number): void {
     this.certificatesService
@@ -121,7 +175,7 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
       console.log(cert);
       this.updateCertificate(id, cert);
     }
-      this.cancel();
+    this.cancel();
   }
   updateCertificate(id: number, updateCertificate: certificateRequest): void {
     this.certificatesService

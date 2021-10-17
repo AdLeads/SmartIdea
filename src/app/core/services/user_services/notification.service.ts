@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Notification } from '../../models/notification.model';
 import apiKey from '../apiKey';
 @Injectable({
   providedIn: 'root',

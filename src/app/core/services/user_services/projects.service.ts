@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IProjects } from '../../models/projects.model';
-import { Skill } from '../../models/skill.model';
-import {Donation} from '../../models/donation.model';
+import { IProjects } from 'src/app/shared/models/projects.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +9,9 @@ export class ProjectsService {
   constructor(private http: HttpClient) {}
 
   getAllProjects(iduser: number) {
-    return this.http.get<IProjects[]>(`http://localhost:8080/user/list/${iduser}`);
+    return this.http.get<IProjects[]>(
+      `http://localhost:8080/user/list/${iduser}`
+    );
   }
   getAllProjectsfeed() {
     return this.http.get<IProjects[]>(
@@ -34,8 +34,11 @@ export class ProjectsService {
       `http://localhost:8080/user/1/buscar/${Buscar}`
     );
   }
-  postnewproject(project: IProjects , iduser: number) {
-    return this.http.post(`http://localhost:8080/user/${iduser}/projects`, project);
+  postnewproject(project: IProjects, iduser: number) {
+    return this.http.post(
+      `http://localhost:8080/user/${iduser}/projects`,
+      project
+    );
   }
   updateproject(project: IProjects, id: number, iduser: number) {
     return this.http.put(
@@ -72,8 +75,9 @@ export class ProjectsService {
     );
   }
   yaexiste(idproject: number, iduser: number) {
-    let var1=this.http.get<number>(
-      `http://localhost:8080/user/${iduser}/projectos/${idproject}`);
+    let var1 = this.http.get<number>(
+      `http://localhost:8080/user/${iduser}/projectos/${idproject}`
+    );
     console.log(var1);
     return var1;
   }

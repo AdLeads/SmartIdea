@@ -1,6 +1,5 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import { CertificateService } from 'src/app/services/user_services/certificate.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-warning-dialog',
@@ -8,9 +7,11 @@ import { CertificateService } from 'src/app/services/user_services/certificate.s
   styleUrls: ['./warning-dialog.component.css'],
 })
 export class WarningDialogComponent implements OnInit {
-
   buttonMessage: string = 'Si';
-  constructor(public matDialogRef: MatDialogRef<WarningDialogComponent>,@Inject(MAT_DIALOG_DATA) public data: {message: string}) {}
+  constructor(
+    public matDialogRef: MatDialogRef<WarningDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { message: string }
+  ) {}
   ngOnInit(): void {}
   accept() {
     this.matDialogRef.close(true);

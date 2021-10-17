@@ -1,16 +1,8 @@
 <h1>{{ detailedNotification.title }}</h1>
 <mat-dialog-content
-  ><h4>{{ detailedNotification.message }}</h4>
-  <span>{{
-    detailedNotification.date | date: "medium"
-  }}</span></mat-dialog-content
+  ><h4>Mensaje aqui</h4>
+  <span>10/20/23</span></mat-dialog-content
 >
 <mat-dialog-actions>
-  <button
-    routerLink="/user/userRequest/{{ detailedNotification.projectId }}"
-    mat-button
-    (click)="goToProject()"
-  >
-    Ver proyecto
-  </button>
+  <button mat-button (click)="goToProject()">Ver proyecto</button>
 </mat-dialog-actions>

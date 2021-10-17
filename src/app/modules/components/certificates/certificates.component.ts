@@ -1,8 +1,7 @@
-import { Certificate } from './../../../models/certificate.model';
-import { certificateRequest } from '../../../models/certificateRequest.model';
 import { Component, OnChanges, OnInit } from '@angular/core';
-import { CertificateService } from 'src/app/services/user_services/certificate.service';
 import { MatDialog } from '@angular/material/dialog';
+import { CertificateService } from 'src/app/core/services/user_services/certificate.service';
+import { Certificate } from 'src/app/shared/models/certificate.model';
 import { CreateCertificateComponent } from '../dialogs/create-certificate/create-certificate.component';
 export interface DialogData {
   certificateName: string;

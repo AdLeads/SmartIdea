@@ -5,8 +5,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { NotificationService } from 'src/app/services/user_services/notification.service';
-import { Notification } from '../../../../models/notification.model';
+import { NotificationService } from 'src/app/core/services/user_services/notification.service';
 @Component({
   selector: 'app-notification-details',
   templateUrl: './notification-details.component.html',
@@ -22,7 +21,7 @@ export class NotificationDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.detailedNotification = this.data;
-    this.getNotificationDetails(this.detailedNotification.notificationId);
+    // this.getNotificationDetails(this.detailedNotification.notificationId);
   }
   onNoClick(): void {
     this.dialogRef.close();

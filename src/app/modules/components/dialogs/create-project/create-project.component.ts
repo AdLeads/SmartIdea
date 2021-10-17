@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
-import {MatDialogRef} from '@angular/material/dialog';
-import {IProjects} from '../../../../models/projects.model';
-import {ProjectsService} from '../../../../services/user_services/projects.service';
-import {MediaService} from "../../../../services/user_services/media.service";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ProjectsService } from 'src/app/core/services/user_services/projects.service';
+import { MediaService } from 'src/app/core/services/user_services/media.service';
+import { IProjects } from 'src/app/shared/models/projects.model';
 
 @Component({
   selector: 'app-create-project',
   templateUrl: './create-project.component.html',
-  styleUrls: ['./create-project.component.css']
+  styleUrls: ['./create-project.component.css'],
 })
 export class CreateProjectComponent implements OnInit {
   formProject: FormGroup;
@@ -20,7 +25,7 @@ export class CreateProjectComponent implements OnInit {
     private projectService: ProjectsService,
     private mediaService: MediaService,
     public dialogRef: MatDialogRef<CreateProjectComponent>
-  ){}
+  ) {}
 
   edit = false;
   onNoClick(): void {
@@ -34,7 +39,6 @@ export class CreateProjectComponent implements OnInit {
   }
   ngOnInit(): void {
     this.editproject();
-
   }
 
   editproject(): void {
@@ -42,10 +46,31 @@ export class CreateProjectComponent implements OnInit {
     this.formProject = this.fromBuilder.group({
       projectsId: [0, [Validators.required]],
       status: [1, [Validators.required]],
-      projectTitle: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
-      description: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
-      benefits: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
-      budget: ['',[Validators.required, this.noWhitespaceValidator]],
+      projectTitle: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          this.noWhitespaceValidator,
+        ],
+      ],
+      description: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          this.noWhitespaceValidator,
+        ],
+      ],
+      benefits: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          this.noWhitespaceValidator,
+        ],
+      ],
+      budget: ['', [Validators.required, this.noWhitespaceValidator]],
     });
   }
 
@@ -54,29 +79,23 @@ export class CreateProjectComponent implements OnInit {
       const cert = this.formProject.value;
       console.log(cert);
       this.createproject(cert);
-    }else{
-      window.alert("hay datos vacios ");
+    } else {
+      window.alert('hay datos vacios ');
     }
-
-
   }
   public noWhitespaceValidator(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;
     const isValid = !isWhitespace;
-    return isValid ? null : { 'whitespace': true };
+    return isValid ? null : { whitespace: true };
   }
 
   createproject(projects: IProjects): void {
-
     var iduser = parseInt(localStorage.getItem('userId'));
     this.projectService
-      .postnewproject (projects,iduser)
+      .postnewproject(projects, iduser)
       .subscribe((projects) => {
         console.log(projects);
       });
     this.onNoClick();
-
   }
-
-
 }

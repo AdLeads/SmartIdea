@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../../../../services/user_services/user.service';
-import { User } from '../../../../models/user.model';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { UserService } from 'src/app/core/services/user_services/user.service';
+import { User } from 'src/app/shared/models/user.model';
 import { NotificationDetailsComponent } from '../../../components/dialogs/notification-details/notification-details.component';
 import { SignupComponent } from '../signup/signup.component';
 
@@ -33,32 +33,28 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     console.log('LOGIN');
-    if (this.form.valid) {
-      const cert = this.form.value;
-      console.log(cert);
-      this.loginuser(cert);
-    }
+    const cert = this.form.value;
+    this.loginuser(cert);
   }
   loginuser(user: User) {
     console.log(user);
 
     this.userService.loginclient(user).subscribe((data) => {
-
       alert(data);
       if (data != null) {
         this.clienReturn = data;
-        if(this.clienReturn.username!=null){
+        if (this.clienReturn.username != null) {
           alert('Bienvenido ' + this.clienReturn.username);
           localStorage.setItem('email', this.clienReturn.email);
           localStorage.setItem('userId', this.clienReturn.userId + '');
           console.log(localStorage);
           console.log('Login');
-        }else{
-          alert("no es un usuario");
+        } else {
+          alert('no es un usuario');
           localStorage.clear();
         }
       } else {
-        alert("no es un usuario");
+        alert('no es un usuario');
         // this.contador++;
         // if (this.contador>3) {
         //   this.snackBar.open('No puede ingresar al sistema', '', {duration: 2000,});

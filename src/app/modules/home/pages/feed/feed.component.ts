@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../../../../services/user_services/projects.service';
-import { IProjects } from '../../../../models/projects.model';
-import {Media} from '../../../../models/media.model';
-import {ReferencesService} from '../../../../services/user_services/references.service';
-import {MediaService} from '../../../../services/user_services/media.service';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {TagsService} from '../../../../services/user_services/tags.service';
-import {Tag} from '../../../../models/tag.model';
-import {DonationService} from '../../../../services/user_services/donation.service';
-import {Donation} from '../../../../models/donation.model';
-import  {ActivatedRoute} from '@angular/router';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { DonationService } from 'src/app/core/services/user_services/donation.service';
+import { MediaService } from 'src/app/core/services/user_services/media.service';
+import { ProjectsService } from 'src/app/core/services/user_services/projects.service';
+import { TagsService } from 'src/app/core/services/user_services/tags.service';
+import { Donation } from 'src/app/shared/models/donation.model';
+import { Media } from 'src/app/shared/models/media.model';
+import { IProjects } from 'src/app/shared/models/projects.model';
+import { Tag } from 'src/app/shared/models/tag.model';
 
 @Component({
   selector: 'app-feed',
@@ -17,9 +16,14 @@ import  {ActivatedRoute} from '@angular/router';
   styleUrls: ['./feed.component.css'],
 })
 export class FeedComponent implements OnInit {
-
   public events: string[] = [];
-  public source: Array<string> = ['Albania', 'Andorra', 'Armenia', 'Austria', 'Azerbaijan'];
+  public source: Array<string> = [
+    'Albania',
+    'Andorra',
+    'Armenia',
+    'Austria',
+    'Azerbaijan',
+  ];
   public data: Array<string>;
   listProjects: IProjects[];
   projectDetails: IProjects[];
@@ -31,9 +35,13 @@ export class FeedComponent implements OnInit {
   form: FormGroup;
   busqueda: FormGroup;
   TagControl = new FormControl();
-  constructor( private service: ProjectsService, private mediaService: MediaService, private tagservice: TagsService,
-               private formbuilder : FormBuilder,
-               private donationService: DonationService,) {
+  constructor(
+    private service: ProjectsService,
+    private mediaService: MediaService,
+    private tagservice: TagsService,
+    private formbuilder: FormBuilder,
+    private donationService: DonationService
+  ) {
     this.form = new FormGroup({
       tag: this.TagControl,
     });
@@ -50,16 +58,13 @@ export class FeedComponent implements OnInit {
       this.listProjects = data;
     });
   }
-taglist(){
-    this.tagservice.gettags().subscribe(value => {
-     this.listtag = value;
+  taglist() {
+    this.tagservice.gettags().subscribe((value) => {
+      this.listtag = value;
     });
-
-}
-
+  }
 
   viewProject(projectId: number): void {
-
     const iduser = parseInt(localStorage.getItem('userId'));
     this.projectDetails = this.listProjects.filter(
       (project) => project.projectsId == projectId
@@ -73,41 +78,41 @@ taglist(){
     console.log('VIEW');
   }
 
-  funcxx():void{
-    this.busqueda =this.formbuilder.group({
-      search: ['']
+  funcxx(): void {
+    this.busqueda = this.formbuilder.group({
+      search: [''],
     });
   }
-  sercher():void{
+  sercher(): void {
     const iduser = parseInt(localStorage.getItem('userId'));
-    if(this.busqueda.valid){
+    if (this.busqueda.valid) {
       console.log(this.busqueda.value.search);
-      this.service.getProjecssherche(this.busqueda.value.search.trim(), iduser).subscribe((data) => {
-        console.log(data);
-        if ( data.length === 0){
-          window.alert('no hay resultados');
-          this.ngOnInit();
-        }else{
-          this.listProjects = data;
-        }
-      });
+      this.service
+        .getProjecssherche(this.busqueda.value.search.trim(), iduser)
+        .subscribe((data) => {
+          console.log(data);
+          if (data.length === 0) {
+            window.alert('no hay resultados');
+            this.ngOnInit();
+          } else {
+            this.listProjects = data;
+          }
+        });
     }
   }
   //var valor = document.getElementById("texto").value;
-  updatellsit(tagId: number): void{
+  updatellsit(tagId: number): void {
     const iduser = parseInt(localStorage.getItem('userId'));
-// getProjecttags(id: number, iduser: number)
+    // getProjecttags(id: number, iduser: number)
     this.service.getProjecttags(tagId, iduser).subscribe((data) => {
       console.log(data);
-      if ( data.length === 0){
+      if (data.length === 0) {
         window.alert('no hay resultados');
         this.ngOnInit();
-      }else{
+      } else {
         this.listProjects = data;
       }
     });
-}
-  loadDonation(){
-
- }
+  }
+  loadDonation() {}
 }
