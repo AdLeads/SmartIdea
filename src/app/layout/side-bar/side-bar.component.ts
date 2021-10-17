@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../../modules/home/pages/login/login.component';
-import { NotificationService } from 'src/app/core/services/user_services/notification.service';
-import { UserService } from 'src/app/core/services/user_services/user.service';
+import { NotificationService } from 'src/app/core/http/notification.service';
+import { UserService } from 'src/app/core/http/user.service';
 import { User } from 'src/app/shared/models/user.model';
 
 @Component({

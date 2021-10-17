@@ -12,7 +12,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { CertificateService } from 'src/app/core/services/user_services/certificate.service';
+import { CertificateService } from 'src/app/core/http/certificate.service';
 import { certificateRequest } from 'src/app/shared/models/certificateRequest.model';
 @Component({
   selector: 'app-create-certificate',

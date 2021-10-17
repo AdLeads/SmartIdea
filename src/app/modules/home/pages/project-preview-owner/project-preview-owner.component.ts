@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AreaService } from 'src/app/core/services/user_services/area.service';
-import { MediaService } from 'src/app/core/services/user_services/media.service';
-import { ReferencesService } from 'src/app/core/services/user_services/references.service';
-import { SkillService } from 'src/app/core/services/user_services/skill.service';
-import { TagsService } from 'src/app/core/services/user_services/tags.service';
+import { AreaService } from 'src/app/core/http/area.service';
+import { MediaService } from 'src/app/core/http/media.service';
+import { ReferencesService } from 'src/app/core/http/references.service';
+import { SkillService } from 'src/app/core/http/skill.service';
+import { TagsService } from 'src/app/core/http/tags.service';
 import { Area } from 'src/app/shared/models/area.model';
 import { Media } from 'src/app/shared/models/media.model';
 import { IProjects } from 'src/app/shared/models/projects.model';

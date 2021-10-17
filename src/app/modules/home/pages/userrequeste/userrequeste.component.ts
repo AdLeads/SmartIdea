@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProjectsService } from 'src/app/core/services/user_services/projects.service';
-import { UserService } from 'src/app/core/services/user_services/user.service';
+import { ProjectsService } from 'src/app/core/http/projects.service';
+import { UserService } from 'src/app/core/http/user.service';
 import { IProjects } from 'src/app/shared/models/projects.model';
 import { User } from 'src/app/shared/models/user.model';
 

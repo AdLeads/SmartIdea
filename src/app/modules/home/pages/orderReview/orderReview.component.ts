@@ -7,10 +7,10 @@ import { Bill } from 'src/app/shared/models/bill.model';
 import { PaymentPlan } from 'src/app/shared/models/paymentPlan.model';
 import { Card } from 'src/app/shared/models/card.model';
 import { IProjects } from 'src/app/shared/models/projects.model';
-import { CardService } from 'src/app/core/services/user_services/card.service';
-import { ProjectsService } from 'src/app/core/services/user_services/projects.service';
-import { PaymentPlanService } from 'src/app/core/services/user_services/paymentPlan.service';
-import { BillService } from 'src/app/core/services/user_services/bill.service';
+import { CardService } from 'src/app/core/http/card.service';
+import { ProjectsService } from 'src/app/core/http/projects.service';
+import { PaymentPlanService } from 'src/app/core/http/paymentPlan.service';
+import { BillService } from 'src/app/core/http/bill.service';
 
 @Component({
   selector: 'app-orderReview',

@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { WarningDialogComponent } from '../../../components/dialogs/warning-dialog/warning-dialog.component';
 import { EditProjectComponent } from '../../../components/dialogs/edit-project/edit-project.component';
-import { ProjectsService } from 'src/app/core/services/user_services/projects.service';
+import { ProjectsService } from 'src/app/core/http/projects.service';
 import { IProjects } from 'src/app/shared/models/projects.model';
 
 export interface DialogData {

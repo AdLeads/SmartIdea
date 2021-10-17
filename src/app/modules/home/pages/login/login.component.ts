@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { UserService } from 'src/app/core/services/user_services/user.service';
+import { UserService } from 'src/app/core/http/user.service';
 import { User } from 'src/app/shared/models/user.model';
 import { NotificationDetailsComponent } from '../../../components/dialogs/notification-details/notification-details.component';
 import { SignupComponent } from '../signup/signup.component';

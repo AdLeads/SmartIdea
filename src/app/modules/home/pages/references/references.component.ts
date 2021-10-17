@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReferencesService } from 'src/app/core/services/user_services/references.service';
+import { ReferencesService } from 'src/app/core/http/references.service';
 import { IProjects } from 'src/app/shared/models/projects.model';
 
 @Component({

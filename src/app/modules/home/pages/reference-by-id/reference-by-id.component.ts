@@ -6,12 +6,12 @@ import { Media } from 'src/app/shared/models/media.model';
 import { Area } from 'src/app/shared/models/area.model';
 import { Tag } from 'src/app/shared/models/tag.model';
 import { Skill } from 'src/app/shared/models/skill.model';
-import { ReferencesService } from 'src/app/core/services/user_services/references.service';
-import { MediaService } from 'src/app/core/services/user_services/media.service';
-import { AreaService } from 'src/app/core/services/user_services/area.service';
-import { SkillService } from 'src/app/core/services/user_services/skill.service';
-import { TagsService } from 'src/app/core/services/user_services/tags.service';
-import { ProjectsService } from 'src/app/core/services/user_services/projects.service';
+import { ReferencesService } from 'src/app/core/http/references.service';
+import { MediaService } from 'src/app/core/http/media.service';
+import { AreaService } from 'src/app/core/http/area.service';
+import { SkillService } from 'src/app/core/http/skill.service';
+import { TagsService } from 'src/app/core/http/tags.service';
+import { ProjectsService } from 'src/app/core/http/projects.service';
 
 @Component({
   selector: 'app-reference-by-id',

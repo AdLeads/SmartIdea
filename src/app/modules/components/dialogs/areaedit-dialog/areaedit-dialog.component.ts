@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { AreaService } from 'src/app/core/services/user_services/area.service';
+import { AreaService } from 'src/app/core/http/area.service';
 import { Area } from 'src/app/shared/models/area.model';
 
 @Component({

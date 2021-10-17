@@ -5,7 +5,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { NotificationService } from 'src/app/core/services/user_services/notification.service';
+import { NotificationService } from 'src/app/core/http/notification.service';
 @Component({
   selector: 'app-notification-details',
   templateUrl: './notification-details.component.html',

@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
-import { ProjectsService } from 'src/app/core/services/user_services/projects.service';
-import { MediaService } from 'src/app/core/services/user_services/media.service';
+import { ProjectsService } from 'src/app/core/http/projects.service';
+import { MediaService } from 'src/app/core/http/media.service';
 import { IProjects } from 'src/app/shared/models/projects.model';
 
 @Component({

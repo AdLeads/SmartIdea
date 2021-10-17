@@ -21,9 +21,9 @@ import { map, startWith } from 'rxjs/operators';
 import { Tag } from 'src/app/shared/models/tag.model';
 import { User } from 'src/app/shared/models/user.model';
 import { Skill } from 'src/app/shared/models/skill.model';
-import { UserService } from 'src/app/core/services/user_services/user.service';
-import { SkillService } from 'src/app/core/services/user_services/skill.service';
-import { TagsService } from 'src/app/core/services/user_services/tags.service';
+import { UserService } from 'src/app/core/http/user.service';
+import { SkillService } from 'src/app/core/http/skill.service';
+import { TagsService } from 'src/app/core/http/tags.service';
 export interface DialogData {
   skillName: string;
 }

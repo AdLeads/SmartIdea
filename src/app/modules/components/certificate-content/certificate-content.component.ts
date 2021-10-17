@@ -16,7 +16,7 @@ import {
 import { CertificateComponent } from '../../home/pages/certificate/certificate.component';
 import { WarningDialogComponent } from '../dialogs/warning-dialog/warning-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { CertificateService } from 'src/app/core/services/user_services/certificate.service';
+import { CertificateService } from 'src/app/core/http/certificate.service';
 import { certificateRequest } from 'src/app/shared/models/certificateRequest.model';
 import { Certificate } from 'src/app/shared/models/certificate.model';
 @Component({

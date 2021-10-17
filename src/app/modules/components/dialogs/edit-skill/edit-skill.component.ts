@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { SkillService } from 'src/app/core/services/user_services/skill.service';
+import { SkillService } from 'src/app/core/http/skill.service';
 import { Skill } from 'src/app/shared/models/skill.model';
 @Component({
   selector: 'app-edit-skill',

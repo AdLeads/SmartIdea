@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { DonationService } from 'src/app/core/services/user_services/donation.service';
-import { MediaService } from 'src/app/core/services/user_services/media.service';
-import { ProjectsService } from 'src/app/core/services/user_services/projects.service';
-import { TagsService } from 'src/app/core/services/user_services/tags.service';
+import { DonationService } from 'src/app/core/http/donation.service';
+import { MediaService } from 'src/app/core/http/media.service';
+import { ProjectsService } from 'src/app/core/http/projects.service';
+import { TagsService } from 'src/app/core/http/tags.service';
 import { Donation } from 'src/app/shared/models/donation.model';
 import { Media } from 'src/app/shared/models/media.model';
 import { IProjects } from 'src/app/shared/models/projects.model';

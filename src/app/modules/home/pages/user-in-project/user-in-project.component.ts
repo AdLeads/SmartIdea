@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDetailsComponent } from '../../../components/dialogs/user-details/user-details.component';
 import { User } from 'src/app/shared/models/user.model';
-import { ReferencesService } from 'src/app/core/services/user_services/references.service';
+import { ReferencesService } from 'src/app/core/http/references.service';
 
 @Component({
   selector: 'app-user-in-project',
