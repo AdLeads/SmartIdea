@@ -36,7 +36,6 @@ import { EditProjectComponent } from '../components/dialogs/edit-project/edit-pr
 import { UserrequesteComponent } from './pages/userrequeste/userrequeste.component';
 import { OrderReviewComponent } from './pages/orderReview/orderReview.component';
 import { MatTableModule } from '@angular/material/table';
-import { CreditCardPipe } from 'src/app/shared/credit-card.pipe';
 import { SignupComponent } from './pages/signup/signup.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -48,14 +47,15 @@ import { AreaeditDialogComponent } from '../components/dialogs/areaedit-dialog/a
 import { MatGridListModule } from '@angular/material/grid-list';
 import { UserInProjectComponent } from './pages/user-in-project/user-in-project.component';
 import { ProjectPreviewOwnerComponent } from './pages/project-preview-owner/project-preview-owner.component';
-import { SearchPipe } from './pages/search.pipe';
+import { SearchPipe } from '../../shared/pipes/search.pipe';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { FilterRespuestaPipe } from 'src/app/tools/filter-respuesta.pipe';
 import { MatTabsModule } from '@angular/material/tabs';
-import { CountRespCorrectasPipe } from 'src/app/tools/count-resp-correctas.pipe';
-import { NotaFinalPipe } from 'src/app/tools/nota-final.pipe';
+import { CreditCardPipe } from 'src/app/shared/pipes/credit-card.pipe';
+import { FilterRespuestaPipe } from 'src/app/shared/pipes/filter-respuesta.pipe';
+import { CountRespCorrectasPipe } from 'src/app/shared/pipes/count-resp-correctas.pipe';
+import { NotaFinalPipe } from 'src/app/shared/pipes/nota-final.pipe';
 @NgModule({
   declarations: [
     HomeComponent,

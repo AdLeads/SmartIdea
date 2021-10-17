@@ -10,17 +10,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserDetailsComponent } from './modules/components/dialogs/user-details/user-details.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UserDetailsComponent,
-  ],
+  declarations: [AppComponent, UserDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HomeModule,
+    SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatSnackBarModule,
