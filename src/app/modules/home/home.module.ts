@@ -31,7 +31,6 @@ import { CreateSkillComponent } from '../components/dialogs/create-skill/create-
 import { EditSkillComponent } from '../components/dialogs/edit-skill/edit-skill.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatMenuModule } from '@angular/material/menu';
-import { ImageUploadModule } from 'angular2-image-upload';
 import { CreateProjectComponent } from '../components/dialogs/create-project/create-project.component';
 import { EditProjectComponent } from '../components/dialogs/edit-project/edit-project.component';
 import { UserrequesteComponent } from './pages/userrequeste/userrequeste.component';
@@ -114,7 +113,6 @@ import { NotaFinalPipe } from 'src/app/tools/nota-final.pipe';
     MatTableModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ImageUploadModule.forRoot(),
     MatChipsModule,
     MatAutocompleteModule,
     MatGridListModule,

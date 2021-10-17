@@ -1,212 +1,217 @@
 <div class="container">
   <div>
     <img src="{{ user?.image }}" alt="Avatar" width="150" height="150" />
-    <image-upload
-      [style]="customStyle"
-      (uploadFinished)="onUploadFinish($event)"
-      [max]="1"
-      [extensions]="['jpeg', 'png']"
-      buttonCaption="Subir Foto"
-      dropBoxMessage=""
-    ></image-upload>
+
     <button class="button" (click)="updateimage()" *ngIf="this.image != null">
       Subir Foto de perfil
     </button>
   </div>
 
-    <form [formGroup]="formUser" (ngSubmit)="update()">
-      <mat-form-field>
-        <mat-label>First Name </mat-label
-        ><input
+  <form [formGroup]="formUser" (ngSubmit)="update()">
+    <mat-form-field>
+      <mat-label>First Name </mat-label
+      ><input
         matInput
         placeholder="Name"
         formControlName="name"
         required
-        ngModel="{{user?.name}}"
+        ngModel="{{ user?.name }}"
       />
-      </mat-form-field>
-      <span *ngIf="this.formUser.get('name').errors?.required">
-          (El nombre no puede quedar vacío)
-      </span>
-      <span *ngIf="this.formUser.get('name').errors?.minlength">
-          (Debe tener como mínimo 3 caracteres)
-      </span>
-      <span *ngIf="this.formUser.get('name').errors?.pattern">
-          (Debe tener solo letras)
-      </span>
-    <br>
-      <mat-form-field>
+    </mat-form-field>
+    <span *ngIf="this.formUser.get('name').errors?.required">
+      (El nombre no puede quedar vacío)
+    </span>
+    <span *ngIf="this.formUser.get('name').errors?.minlength">
+      (Debe tener como mínimo 3 caracteres)
+    </span>
+    <span *ngIf="this.formUser.get('name').errors?.pattern">
+      (Debe tener solo letras)
+    </span>
+    <br />
+    <mat-form-field>
       <mat-label>Last Name </mat-label
       ><input
-      matInput
-      placeholder="Surname"
-      formControlName="surname"
-      required
-      ngModel="{{user?.surname}}"
+        matInput
+        placeholder="Surname"
+        formControlName="surname"
+        required
+        ngModel="{{ user?.surname }}"
       />
-      </mat-form-field>
-      <span *ngIf="this.formUser.get('surname').errors?.required">
-          (El apellido no puede quedar vacío)
-      </span>
-      <span *ngIf="this.formUser.get('surname').errors?.minlength">
-          (Debe tener como mínimo 3 caracteres)
-      </span>
-      <span *ngIf="this.formUser.get('surname').errors?.pattern">
-          (Debe tener solo letras)
-      </span>
-    <br>
-      <mat-form-field>
-        <mat-label>Nick Name </mat-label
-        ><input
+    </mat-form-field>
+    <span *ngIf="this.formUser.get('surname').errors?.required">
+      (El apellido no puede quedar vacío)
+    </span>
+    <span *ngIf="this.formUser.get('surname').errors?.minlength">
+      (Debe tener como mínimo 3 caracteres)
+    </span>
+    <span *ngIf="this.formUser.get('surname').errors?.pattern">
+      (Debe tener solo letras)
+    </span>
+    <br />
+    <mat-form-field>
+      <mat-label>Nick Name </mat-label
+      ><input
         matInput
         placeholder="Nickname"
         formControlName="username"
         required
-        ngModel="{{user?.username}}"
+        ngModel="{{ user?.username }}"
       />
-      </mat-form-field>
-      <span *ngIf="this.formUser.get('username').errors?.required">
-          (El username no puede quedar vacío)
-      </span>
-      <span *ngIf="this.formUser.get('username').errors?.minlength">
-          (Debe tener como mínimo 3 caracteres)
-      </span>
-    <br>
+    </mat-form-field>
+    <span *ngIf="this.formUser.get('username').errors?.required">
+      (El username no puede quedar vacío)
+    </span>
+    <span *ngIf="this.formUser.get('username').errors?.minlength">
+      (Debe tener como mínimo 3 caracteres)
+    </span>
+    <br />
     <mat-form-field>
       <mat-label>Email </mat-label
       ><input
-      matInput
-      placeholder="Email"
-      formControlName="email"
-      required
-      ngModel="{{user?.email}}"
-    />
+        matInput
+        placeholder="Email"
+        formControlName="email"
+        required
+        ngModel="{{ user?.email }}"
+      />
     </mat-form-field>
-      <span *ngIf="this.formUser.get('email').errors?.email">
-          (Correo invalido)
-      </span>
-      <span *ngIf="this.formUser.get('email').errors?.minlength">
-          (Debe tener como mínimo 10 caracteres)
-      </span>
-    <br>
+    <span *ngIf="this.formUser.get('email').errors?.email">
+      (Correo invalido)
+    </span>
+    <span *ngIf="this.formUser.get('email').errors?.minlength">
+      (Debe tener como mínimo 10 caracteres)
+    </span>
+    <br />
     <mat-form-field>
       <mat-label>Description </mat-label
       ><input
-      matInput
-      placeholder="Description"
-      formControlName="description"
-      required
-      ngModel="{{user?.description}}"
-    />
+        matInput
+        placeholder="Description"
+        formControlName="description"
+        required
+        ngModel="{{ user?.description }}"
+      />
     </mat-form-field>
-      <span *ngIf="this.formUser.get('description').errors?.required">
-          (Cellphone no puede quedar vacío)
-      </span>
-      <span *ngIf="this.formUser.get('description').errors?.minlength">
-          (Debe tener como mínimo 10 caracteres)
-      </span>
-    <br>
+    <span *ngIf="this.formUser.get('description').errors?.required">
+      (Cellphone no puede quedar vacío)
+    </span>
+    <span *ngIf="this.formUser.get('description').errors?.minlength">
+      (Debe tener como mínimo 10 caracteres)
+    </span>
+    <br />
     <mat-form-field>
       <mat-label>Cellphone </mat-label
       ><input
-      matInput
-      placeholder="Cellphone"
-      formControlName="cellphone"
-      required
-      ngModel="{{user?.cellphone}}"
-    />
+        matInput
+        placeholder="Cellphone"
+        formControlName="cellphone"
+        required
+        ngModel="{{ user?.cellphone }}"
+      />
     </mat-form-field>
-      <span *ngIf="this.formUser.get('cellphone').errors?.required">
-          (Cellphone no puede quedar vacío)
-      </span>
-      <span *ngIf="this.formUser.get('cellphone').errors?.minlength">
-          (Debe tener como mínimo 7 numeros)
-      </span>
-      <span *ngIf="this.formUser.get('cellphone').errors?.pattern">
-          (Debe tener solo números)
-      </span>
-      <div>{{resultado}}</div>
+    <span *ngIf="this.formUser.get('cellphone').errors?.required">
+      (Cellphone no puede quedar vacío)
+    </span>
+    <span *ngIf="this.formUser.get('cellphone').errors?.minlength">
+      (Debe tener como mínimo 7 numeros)
+    </span>
+    <span *ngIf="this.formUser.get('cellphone').errors?.pattern">
+      (Debe tener solo números)
+    </span>
+    <div>{{ resultado }}</div>
     <mat-dialog-actions>
-    <button type="submit" mat-raised-button color="primary" cdkFocusInitial >
-      Update user
-    </button>
+      <button type="submit" mat-raised-button color="primary" cdkFocusInitial>
+        Update user
+      </button>
     </mat-dialog-actions>
   </form>
 
-<div>
   <div>
-    <h1>SKILLS</h1>
-    <button class="button" (click)="createSkill()">Add Skill</button>
-    <hr />
-    <table mat-table matSort [dataSource]="skills" class="table mat-elevation-z8">
-      <ng-container matColumnDef="#">
-        <th mat-header-cell *matHeaderCellDef>#</th>
-        <td mat-cell *matCellDef="let skill">{{ skills.indexOf(skill) + 1 }}</td>
-      </ng-container>
-      <ng-container matColumnDef="Habilidades">
-        <th mat-header-cell *matHeaderCellDef>Habilidades</th>
-        <td mat-cell *matCellDef="let skill">
-          {{ skill.skillName }}
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="id_card">
-        <th mat-header-cell *matHeaderCellDef>Acciones</th>
-        <td mat-cell *matCellDef="let skill">
-          <button
-            class="action-button"
-            mat-mini-fab
-            (click)="editSkill(skill.skillId, skill.skillName)"
-          >
-            <span><mat-icon>edit</mat-icon></span>
-          </button>
+    <div>
+      <h1>SKILLS</h1>
+      <button class="button" (click)="createSkill()">Add Skill</button>
+      <hr />
+      <table
+        mat-table
+        matSort
+        [dataSource]="skills"
+        class="table mat-elevation-z8"
+      >
+        <ng-container matColumnDef="#">
+          <th mat-header-cell *matHeaderCellDef>#</th>
+          <td mat-cell *matCellDef="let skill">
+            {{ skills.indexOf(skill) + 1 }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Habilidades">
+          <th mat-header-cell *matHeaderCellDef>Habilidades</th>
+          <td mat-cell *matCellDef="let skill">
+            {{ skill.skillName }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="id_card">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let skill">
+            <button
+              class="action-button"
+              mat-mini-fab
+              (click)="editSkill(skill.skillId, skill.skillName)"
+            >
+              <span><mat-icon>edit</mat-icon></span>
+            </button>
 
-          <button
-            class="action-button"
-            mat-mini-fab
-            color="warn"
-            (click)="
-            deleteSkill(skill.skillId, skill.skillName, skills.indexOf(skill))
-          "
+            <button
+              class="action-button"
+              mat-mini-fab
+              color="warn"
+              (click)="
+                deleteSkill(
+                  skill.skillId,
+                  skill.skillName,
+                  skills.indexOf(skill)
+                )
+              "
+            >
+              <span><mat-icon>delete</mat-icon> </span>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <br />
+    </div>
+    <div>
+      <mat-form-field class="example-chip-list">
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip
+            *ngFor="let tag of tags"
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="remove(tag)"
           >
-            <span><mat-icon>delete</mat-icon> </span>
-          </button>
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-    <br />
-  </div>
-  <div>
-    <mat-form-field class="example-chip-list">
-      <mat-chip-list #chipList aria-label="Fruit selection">
-        <mat-chip
-          *ngFor="let tag of tags"
-          [selectable]="selectable"
-          [removable]="removable"
-          (removed)="remove(tag)"
+            {{ tag.nameTags }}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input
+            placeholder="New Tag..."
+            #tagInput
+            [formControl]="tagCtrl"
+            [matChipInputFor]="chipList"
+            [matAutocomplete]="auto"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="add($event)"
+          />
+        </mat-chip-list>
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          (optionSelected)="selected($event)"
         >
-          {{ tag.nameTags }}
-          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-        </mat-chip>
-        <input
-          placeholder="New Tag..."
-          #tagInput
-          [formControl]="tagCtrl"
-          [matChipInputFor]="chipList"
-          [matAutocomplete]="auto"
-          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-          (matChipInputTokenEnd)="add($event)"
-        />
-      </mat-chip-list>
-      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-        <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
-          {{tag.nameTags}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
+          <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+            {{ tag.nameTags }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
   </div>
-</div>
-
-
 </div>

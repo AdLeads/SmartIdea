@@ -19,7 +19,6 @@ import {
   MatDialog,
   MatDialogRef,
 } from '@angular/material/dialog';
-import { FileHolder } from 'angular2-image-upload';
 import { AreacreateDialogComponent } from '../areacreate-dialog/areacreate-dialog.component';
 import { AreaeditDialogComponent } from '../areaedit-dialog/areaedit-dialog.component';
 import { CreateSkillComponent } from '../create-skill/create-skill.component';
@@ -90,7 +89,6 @@ export class EditProjectComponent implements OnInit {
     );
   }
   displayedColumns: string[] = ['#', 'Area', 'id_card'];
-  images: FileHolder[] = [];
   listProjects: IProjects[];
   listArea: Area[];
   skills: Skill[];
@@ -243,7 +241,6 @@ export class EditProjectComponent implements OnInit {
     } else {
       window.alert('hay datos vacios');
     }
-    this.eachUpload(this.data.idproject);
   }
   areaDelet(idarea: number, name: string) {
     const area: Area = {
@@ -307,19 +304,6 @@ export class EditProjectComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       this.ngOnInit();
-    });
-  }
-  onUploadFinish(event) {
-    this.images.push(event);
-  }
-  eachUpload(idproject: number) {
-    this.images.forEach((value) => {
-      this.uploadimages(idproject, {
-        title: value.file.name,
-        url: value.src,
-        type: 1,
-      });
-      console.log('logrado');
     });
   }
   uploadimages(idproject: number, media: Media) {
