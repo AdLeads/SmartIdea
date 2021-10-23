@@ -8,8 +8,6 @@ import { HomeModule } from './modules/home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserDetailsComponent } from './modules/components/dialogs/user-details/user-details.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -17,12 +15,10 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule,
     SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatSnackBarModule,
-    MatCheckboxModule,
+    HomeModule,
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
