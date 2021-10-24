@@ -18,6 +18,28 @@ const routes: Routes = [
         loadChildren: () =>
           import('./modules/home/home.module').then((m) => m.HomeModule),
       },
+      // {
+      //   path: 'certificates',
+      //   // canActivate: [UserGuard],
+      //   loadChildren: () =>
+      //     import('./modules/certificates/certificates.module').then(
+      //       (m) => m.CertificatesModule
+      //     ),
+      // },
+      // {
+      //   path: 'projects',
+      //   // canActivate: [UserGuard],
+      //   loadChildren: () =>
+      //     import('./modules/projects/projects.module').then(
+      //       (m) => m.ProjectsModule
+      //     ),
+      // },
+      {
+        path: 'profile',
+        // canActivate: [UserGuard],
+        loadChildren: () =>
+          import('./modules/user/user.module').then((m) => m.UserModule),
+      },
     ],
   },
   {

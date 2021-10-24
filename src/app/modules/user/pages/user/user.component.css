@@ -1,0 +1,61 @@
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+img {
+  border-radius: 50%;
+}
+
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+your_div{
+  width:50%;
+}
+table{
+  font-size: 16px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 50%;
+}
+th{
+  padding-top: 11px;
+  padding-bottom: 11px;
+  background-color: #4CAF50;
+  color: white;
+}
+td{
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 8px;
+}
+
+
+.customClass {
+  background-color: #dd3;
+  border-radius: 5px;
+  margin:5px;
+  width: 500px;
+}
+
+
