@@ -1,0 +1,61 @@
+<h1 mat-dialog-title>Nuevo proyecto</h1>
+<form [formGroup]="formProject" (ngSubmit)="saveproject()">
+  <mat-dialog-content>
+
+    <mat-form-field  >
+      <mat-label class="omrs-input-label" >Titulo</mat-label
+      ><input
+      matInput
+      placeholder="Titulo"
+      formControlName="projectTitle"
+      required
+    />
+<!--      <span *ngIf="this.formProject.get('projectTitle').errors?.required">           (El nombre no puede quedar vacío)         </span>-->
+<!--      <span *ngIf="this.formProject.get('projectTitle').errors?.minlength">           (Debe tener como mínimo 3 caracteres)         </span>-->
+
+    </mat-form-field>
+    <mat-form-field  >
+      <mat-label class="omrs-input-label">description</mat-label
+      ><input
+      matInput
+      placeholder="description"
+      formControlName="description"
+      required
+    />
+<!--      <span *ngIf="this.formProject.get('description').errors?.required">           (El nombre no puede quedar vacío)         </span>-->
+<!--      <span *ngIf="this.formProject.get('description').errors?.minlength">           (Debe tener como mínimo 3 caracteres)         </span>-->
+
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label class="omrs-input-label">benefits </mat-label
+      ><input
+      matInput
+      placeholder="benefits"
+      formControlName="benefits"
+      required
+    />
+<!--      <span *ngIf="this.formProject.get('benefitsn').errors?.required">           (El nombre no puede quedar vacío)         </span>-->
+<!--      <span *ngIf="this.formProject.get('benefits').errors?.minlength">           (Debe tener como mínimo 3 caracteres)         </span>-->
+
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label class="omrs-input-label">Budget </mat-label
+      ><input
+      matInput
+      placeholder="budget"
+      formControlName="budget"
+      required
+    />
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button type="submit" mat-button color="primary" cdkFocusInitial>
+      Guardar
+    </button>
+    <button mat-button mat-raised-button color="warn" (click)="close()">Cancelar</button>
+  </mat-dialog-actions>
+</form>

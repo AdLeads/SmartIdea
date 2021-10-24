@@ -1,0 +1,95 @@
+.sidenav-container {
+  height: 100%;
+}
+.sidebar-logo {
+  margin: 1rem;
+}
+.sidenav {
+  width: 200px;
+}
+.unseen-icon {
+  color: rgb(148, 150, 151);
+}
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+.user-name {
+  color: #ffffff;
+}
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.notification-wrapper {
+  position: relative;
+  padding: 8px 15px;
+  float: right;
+  border-radius: 5px;
+}
+.notification-wrapper .notification-btn {
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.notification-wrapper .notification-btn:hover {
+  color: royalblue;
+  padding: 1px;
+  background-color: #ffffff;
+  border-radius: 500px;
+  transition: 0.5s all;
+}
+.notification-wrapper .notification-content {
+  position: absolute;
+  top: 40px;
+  right: 5px;
+  width: 350px;
+  height: 200px;
+  background-color: whitesmoke;
+  z-index: 300;
+}
+
+.notification-wrapper .notification-header {
+  padding: 10px;
+  color: #ffffff;
+  background-color: royalblue;
+}
+
+.notification-wrapper .notification-header .notify-info {
+  display: inline-block;
+  width: 90%;
+  text-align: center;
+  font-weight: 500;
+}
+.notify-info-unread {
+  margin: 10px;
+}
+.visibility-project {
+  width: 100%;
+  margin-left: 5px;
+}
+.notify-info {
+  margin: 10px;
+  background-color: lightgray;
+}
+.notify-info-unread:hover {
+  background-color: lightgray;
+  transition: 0.5s all;
+  transform: scale(1.03);
+}
+.notify-info span {
+  color: rgb(148, 150, 151);
+}
+.header-row {
+  width: 100%;
+  margin: 20px;
+}
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+img:hover {
+  box-shadow: 0 0 3px 1px rgba(0, 140, 186, 0.5);
+}

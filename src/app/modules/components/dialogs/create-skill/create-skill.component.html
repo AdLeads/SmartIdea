@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Nueva Skill</h1>
+<form [formGroup]="formSkill" (ngSubmit)="saveSkill()">
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Skill </mat-label
+      ><input
+      matInput
+      placeholder="Skill"
+      formControlName="skillName"
+      required
+    />
+    </mat-form-field>
+    <span *ngIf="this.formSkill.get('skillName').errors?.required">           (El nombre no puede quedar vacío)         </span>
+    <span *ngIf="this.formSkill.get('skillName').errors?.minlength">           (Debe tener como mínimo 3 caracteres)         </span>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button type="submit" mat-button color="primary" cdkFocusInitial>
+      Guardar
+    </button>
+    <button mat-button mat-raised-button color="warn" (click)="close()">Cancelar</button>
+  </mat-dialog-actions>
+</form>
+

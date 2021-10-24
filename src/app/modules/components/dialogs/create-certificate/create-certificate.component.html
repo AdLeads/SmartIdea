@@ -1,0 +1,194 @@
+<h1 mat-dialog-title>Nuevo Certificado</h1>
+
+<form [formGroup]="form" (ngSubmit)="saveCertificate()" autocomplete="off">
+  <mat-dialog-content>
+    <mat-form-field class="form">
+      <mat-label>Nombre</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="certificateName"
+        placeholder="Nombre Certificado"
+        id="certificateName"
+      />
+      <mat-error *ngIf="(certificateName.invalid && (certificateName.dirty || certificateName.touched)) && certificateName.errors.required">
+        Se requiere nombre del Certificado.
+      </mat-error>
+
+      <mat-error *ngIf="(certificateName.invalid && (certificateName.dirty || certificateName.touched)) && certificateName.errors.minlength">
+        Se requiere 3 caracteres como minimo.
+      </mat-error>
+
+      <mat-error *ngIf="(certificateName.invalid && (certificateName.dirty || certificateName.touched)) && certificateName.errors.whitespace">
+        No se admite espacios vacios.
+      </mat-error>
+
+      <mat-error *ngIf="(certificateName.invalid && (certificateName.dirty ||certificateName.touched)) && certificateName.errors.pattern">
+        No se admiten caracteres especiales.
+      </mat-error>
+
+    </mat-form-field><br />
+
+
+
+    <mat-form-field class="form">
+      <mat-label>Empresa</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="company"
+        placeholder="Empresa Emisora"
+        id="company"
+      />
+      <mat-error *ngIf="(company.invalid && (company.dirty || company.touched)) && company.errors.required">
+        Se requiere nombre de la Empresa.
+      </mat-error>
+
+      <mat-error *ngIf="(company.invalid && (company.dirty || company.touched)) && company.errors.minlength">
+        Se requiere 3 caracteres como minimo.
+      </mat-error>
+
+      <mat-error *ngIf="(company.invalid && (company.dirty || company.touched)) && company.errors.whitespace">
+        No se admite espacios vacios.
+      </mat-error>
+
+      <mat-error *ngIf="(company.invalid && (company.dirty || company.touched)) && company.errors.pattern">
+        No se admiten caracteres especiales.
+      </mat-error>
+    </mat-form-field><br />
+
+
+
+    <mat-form-field>
+      <mat-label>Fecha de expedicion: </mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker2"
+        formControlName="expeditionDate"
+        id="expditionDate"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+
+      <mat-error *ngIf="(expeditionDate.invalid && (expeditionDate.dirty || expeditionDate.touched)) && expeditionDate.errors.required">
+        Se requiere la fecha de expedición.
+      </mat-error>
+
+      <mat-error *ngIf="(expeditionDate.invalid && (expeditionDate.dirty || expeditionDate.touched)) && expeditionDate.errors.min">
+        La fecha de expedición minima debe ser a partir del año 2020
+      </mat-error>
+
+      <mat-error *ngIf="(expeditionDate.invalid && (expeditionDate.dirty || expeditionDate.touched)) && expeditionDate.errors.max">
+        La fecha de expedición maxima es hasta el año 2029
+      </mat-error>
+
+      <mat-error *ngIf="(expeditionDate.invalid && (expeditionDate.dirty || expeditionDate.touched)) && expeditionDate.errors.whitespace">
+        No se admiten espacios vacios.
+      </mat-error>
+
+    </mat-form-field><br />
+
+
+
+    <mat-form-field>
+      <mat-label>Fecha de expiracion: </mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker3"
+        formControlName="expirationDate"
+        id="expirationDate"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+
+      <mat-error *ngIf="(expirationDate.invalid && (expirationDate.dirty || expirationDate.touched)) && expirationDate.errors.required">
+        Se requiere la fecha de expiración.
+      </mat-error>
+
+      <mat-error *ngIf="(expirationDate.invalid && (expirationDate.dirty || expirationDate.touched)) && expirationDate.errors.min">
+        La fecha de expedición minima debe ser a partir del año 2020
+      </mat-error>
+
+      <mat-error *ngIf="(expirationDate.invalid && (expirationDate.dirty || expirationDate.touched)) && expirationDate.errors.max">
+        La fecha de expedición maxima es hasta el año 2029
+      </mat-error>
+
+      <mat-error *ngIf="(expirationDate.invalid && (expirationDate.dirty || expirationDate.touched)) && expirationDate.errors.whitespace">
+        No se admiten espacios vacios.
+      </mat-error>
+    </mat-form-field>
+
+
+
+    <mat-form-field class="form">
+      <mat-label>Credential ID:</mat-label
+      ><input
+      matInput
+      type="text"
+      placeholder="ID de la credencial"
+      formControlName="credentialId"
+      id="credentialId"
+    />
+      <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.required">
+        Se requiere el Id del credencial.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.minlength">
+        Se requiere 8 caracteres como minimo.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.maxlength">
+        Se requiere 30 caracteres como maximo.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.whitespace">
+        No se admite espacios vacios.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.pattern">
+        Datos inválidos.
+      </mat-error>
+    </mat-form-field>
+
+
+
+    <mat-form-field class="form">
+      <mat-label>Credential URL: </mat-label
+      ><input
+      matInput
+      type="text"
+      placeholder="URL de la credencial"
+      formControlName="credentialURL"
+      id="credentialURL"
+    />
+      <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.required">
+        Se requiere la URL del credencial.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.minlength">
+        Se requiere 8 caracteres como minimo.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.maxlength">
+        Se requiere 74 caracteres como maximo.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.whitespace">
+        No se admite espacios vacios.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.pattern">
+        Datos inválidos.
+      </mat-error>
+    </mat-form-field>
+
+
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button type="submit" mat-button color="primary" cdkFocusInitial>
+      Guardar
+    </button>
+    <button mat-button mat-raised-button color="warn">Cancelar</button>
+  </mat-dialog-actions>
+</form>

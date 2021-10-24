@@ -1,0 +1,9 @@
+<button (click)="createCertificate()" mat-fab color="primary">
+  <mat-icon>add_icon</mat-icon>
+</button>
+<div class="certificates-grid">
+  <app-certificate-content
+    *ngFor="let certificate of certificates"
+    [certificate]="certificate"
+  ></app-certificate-content>
+</div>
