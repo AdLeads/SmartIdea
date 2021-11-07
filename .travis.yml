@@ -1,0 +1,38 @@
+language: node_js
+node_js:
+  - "12.19"
+
+branches:
+  only:
+    - main
+
+# addons:
+#   chrome: stable
+
+before_script:
+  - yarn global add @angular/cli
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+script:
+  - ng build --prod
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  region: "sa-east-1"
+  keep-history: true
+  local-dir: ./dist/
+  on:
+  
+env:
+global:
+  - secure: MMiCUiC2HgRrC
+  - secure: Rc2byRwFBkC3FjELG+3
+
+travis encrypt AWS_ACCESS_KEY_ID="AKIA4QFXE7EVOR5IZUVQ" --add
