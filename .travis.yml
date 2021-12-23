@@ -13,8 +13,7 @@ branches:
 
 before_script:
   - npm install -g @angular/cli
-  - npm install har-validator@latest --save-dev
 
 script:
   - npm install
-  - ng build
+  - npm run build
