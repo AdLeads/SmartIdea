@@ -15,9 +15,8 @@ after_success:
 branches:
   only:
     - dev
-
-before_deploy:
-  - "echo 'before deploying'"
+# before_deploy:
+#   - "echo 'before deploying'"
 # deploy:
 # provider: heroku
 # on:
