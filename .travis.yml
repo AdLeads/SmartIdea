@@ -3,24 +3,26 @@ language: node_js
 node_js:
   - "12.19.0"
 
-cache:
-  yarn: true
-  directories:
-    - node_modules
-
-before_script:
-  - npm install -g @angular/cli
-
-script:
-  - ng build --prod
-  # - npm run coverall
-
-# after_success:
-#   - npm run build
+dist: trusty
 
 branches:
   only:
     - dev
+
+cache:
+  directories:
+    - node_modules
+
+before_script:
+  - ng lint
+  - npm install -g @angular/cli
+
+script:
+  - ng build
+  # - npm run coverall
+# after_success:
+#   - npm run build
+
 # before_deploy:
 #   - "echo 'before deploying'"
 # deploy:
