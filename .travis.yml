@@ -3,14 +3,17 @@ language: node_js
 node_js:
   - "14.17.6"
 
-cache: npm
+cache:
+  yarn: true
+  directories:
+    - node_modules
 
 script:
-  - npm run test:unit
+  - ng build --prod
   # - npm run coverall
 
-after_success:
-  - npm run build
+# after_success:
+#   - npm run build
 
 branches:
   only:
