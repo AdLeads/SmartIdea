@@ -15,10 +15,12 @@ cache:
 
 before_script:
   - ng lint
+  - npm install
   - npm install -g @angular/cli
 
 script:
   - ng build
+
   # - npm run coverall
 # after_success:
 #   - npm run build
