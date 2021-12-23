@@ -1,38 +1,35 @@
 language: node_js
+
 node_js:
-  - "12.19"
+  - "14.17.6"
+
+cache: npm
+
+script:
+  - npm run test:unit
+  # - npm run coverall
+
+after_success:
+  - npm run build
 
 branches:
   only:
-    - main
+    - dev
 
-# addons:
-#   chrome: stable
+before_deploy:
+  - "echo 'before deploying'"
+# deploy:
+# provider: heroku
+# on:
+#   branch: main
+# api_key:
+#   secure:
+# app:
+#   master: bongo-jobs-dev
+# skip_cleanup: true
 
-before_script:
-  - yarn global add @angular/cli
+# notifications:
+#   slack:
+#     secure:
 
-cache:
-  yarn: true
-  directories:
-    - node_modules
-
-script:
-  - ng build --prod
-
-deploy:
-  provider: pages
-  skip-cleanup: true
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  region: "sa-east-1"
-  keep-history: true
-  local-dir: ./dist/
-  on:
-  
-env:
-global:
-  - secure: MMiCUiC2HgRrC
-  - secure: Rc2byRwFBkC3FjELG+3
-
-travis encrypt AWS_ACCESS_KEY_ID="AKIA4QFXE7EVOR5IZUVQ" --add
+# after_deploy: echo 'after deployed'
