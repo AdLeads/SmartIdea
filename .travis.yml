@@ -1,12 +1,15 @@
 language: node_js
 
 node_js:
-  - "14.17.6"
+  - "12.19.0"
 
 cache:
   yarn: true
   directories:
     - node_modules
+
+before_script:
+  - npm install -g @angular/cli
 
 script:
   - ng build --prod
