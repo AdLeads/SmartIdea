@@ -14,31 +14,8 @@ cache:
     - node_modules
 
 before_script:
-  - ng lint
   - npm install
   - npm install -g @angular/cli
 
 script:
   - ng build
-
-  # - npm run coverall
-# after_success:
-#   - npm run build
-
-# before_deploy:
-#   - "echo 'before deploying'"
-# deploy:
-# provider: heroku
-# on:
-#   branch: main
-# api_key:
-#   secure:
-# app:
-#   master: bongo-jobs-dev
-# skip_cleanup: true
-
-# notifications:
-#   slack:
-#     secure:
-
-# after_deploy: echo 'after deployed'
