@@ -1,21 +1,19 @@
 language: node_js
 node_js:
-- 12.19.0
+  - 12.19.0
 branches:
   only:
-  - master
+    - master
 before_script:
-- npm install -g @angular/cli
+  - npm install -g @angular/cli
 script:
-- npm install
-- npm run build
+  - npm install
+  - npm run build
 deploy:
   provider: heroku
   on:
     branch: master
   api_key:
     secure: AIOepu0ieueSdhP57TW2JdomRwOPnncwXv2x/byvSteAquU66KWoWILsva9G88+OiO7xnB9vALVJjkUM6ypAuuEUcNQbJws34GowhkHGbfXglEK42tzrAfJRZk7IBHSTKNAI44p1RxTfMwljBVFuQI1Vpx4vqq1HJ1ymvNtLagBREIRb+jTP+jH2gzSeT/q/n8QzXkb98IHvKky+kgxST68sq5RgPB9YKEhMyhBoXBUj6JO2Xhh4A3SjUWvKA+QYkVjxT72Yh5ewZpWYOdCecTjSeUyHOPPHXpQJzlPN3rA0YNIMRNWFk3kiyWI3vs4/PA7X+hFzuhVlN05MS7VvCF9CaXFnhzeWo4rd8+vmO/r8C/oBCNVnz9/WYmm6RClx+CRGajf1ndjB5hj5+A3jc79HsJQsQA7/CdEisghMsXTdXaEDb3e5pkDoowRXGrm7FZ8M+sHfQqqkhjYDJypEhKMS57YZo9/Bm77NHUdkvoSw31ht6tbwnET/gq4d6kj5pOfbH9ZQtgcWzyOKAK5k7afsoBAoyHwGjji/Gp6cO9wnOsV3wy1gT3q4nXE615NUQy2UcPqqz6cxKE3IJvRuVOHoD9ac3FvNNVLA4pXtFOXF5jyTxME+lfFmAgX5X/Yh2Sj+r3awKU9Di8/tNmmV4ZEYph+2FK5i9uA83N33xcs=
-  api-key:
-    secure: NT265KKsgM5GQTrRHfBIlsNIKxn1BTWraTGsKkdtQiJKAm1nJdRFIzmD5euI4QmEhJv40XWGHAks0/RiRVJrBXQZ/c+e0La9fc+Ud76wjHoAw4uxnqtySF3pp6RvKOlw+3WqLLVALD2Lahaw7rEmpYE42Y37mZp4V9vNHLjxC0uosEC8Z3YoH+0XqsI8hcLNJCArLhez1u78mmLspPnVtYN2W8fjAYKzx7bLqEB1JaX8zpO23IAaqZpbDzG6BmJAhYXgpaCBz7pHHqt+aPPX9eln/zNRBCwLRKhxkSaKOWDAxDr1hGSl7lP2X9jKfTejTSjm4prsx5OGUhfXIs7RUQ4mW7S25FjC9DZDdZrNreBwhHBWzM/IKuBu7bN06O30VtWNapSV7vSLQtQJkJEpVsnH3z3A+p0pI0rMuTiZk/zILi3zWHZ+93bIH94n4w+fdGXuUUL0uUf2PGqW3h48kF6hFNaeKVMkhCyQ7qrPJDVSHq4XGPEMFmRTH8VT+QjqBOV5qdgTz1IFspVU2jvQFxuPbOxwXIvrq7ROTZbt3ZTO7QU4vGY9iqW433vYX4L68M9bIJkBfDN5tkShSmdudWCNmCaGwxv+W7vHYIGf0qcLoef9T19Wipq1rrYH5V+Cc6y7F5TgpQDHH3FbGWqvIhq9BUPmpjgr07J0mkRxJ8A=
   app:
     master: smart-idea-frontend
