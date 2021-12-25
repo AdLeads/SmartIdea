@@ -1,17 +1,9 @@
 .header {
-  //background-color: orangered;
   display: flex;
   justify-content: flex-end;
   padding: 3rem !important;
-  background-color: white;
   //height: 5vh;
-  //background-color: $color-primary-white;
-  //color: red;
-  //background-size: cover;
-  //background-position: top;
-  //clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  //float: right;
-  //position: relative;
+  background-color: $color-primary-white;
   &__logo-box {
     background: salmon;
     position: absolute;

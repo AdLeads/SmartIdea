@@ -1,0 +1,177 @@
+<h1 mat-dialog-title>Editar proyecto</h1>
+<!-- <form [formGroup]="formProject" (ngSubmit)="updateProject()">
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-label class="omrs-input-label">Titulo</mat-label
+      ><input
+        matInput
+        placeholder="Titulo"
+        formControlName="projectTitle"
+        required
+        ngModel="{{ this.data.projectTitle }}"
+      />
+      <span *ngIf="this.formProject.get('projectTitle').errors?.required">
+        (El nombre no puede quedar vacío)
+      </span>
+      <span *ngIf="this.formProject.get('projectTitle').errors?.minlength">
+        (Debe tener como mínimo 3 caracteres)
+      </span>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label class="omrs-input-label">description</mat-label
+      ><input
+        matInput
+        placeholder="description"
+        formControlName="description"
+        required
+        ngModel="{{ this.data.description }}"
+      />
+      <span *ngIf="this.formProject.get('description').errors?.required">
+        (El nombre no puede quedar vacío)
+      </span>
+      <span *ngIf="this.formProject.get('description').errors?.minlength">
+        (Debe tener como mínimo 3 caracteres)
+      </span>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="omrs-input-label">benefits </mat-label
+      ><input
+        matInput
+        placeholder="benefits"
+        formControlName="benefits"
+        required
+        ngModel="{{ this.data.benefits }}"
+      />
+      <span *ngIf="this.formProject.get('benefits').errors?.required">
+        (El nombre no puede quedar vacío)
+      </span>
+      <span *ngIf="this.formProject.get('benefits').errors?.minlength">
+        (Debe tener como mínimo 3 caracteres)
+      </span>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="omrs-input-label">Budget</mat-label
+      ><input
+        matInput
+        placeholder="budget"
+        formControlName="budget"
+        required
+        ngModel="{{ this.data.budget }}"
+      />
+      <span *ngIf="this.formProject.get('budget').errors?.required">
+        El monto no puede ser vacío.
+      </span>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-slide-toggle [(ngModel)]="isChecked" formControlName="status"
+    ><div *ngIf="isChecked">Público</div>
+    <div *ngIf="isChecked == false">Privado</div></mat-slide-toggle
+  >
+
+  <div>
+    <mat-form-field class="example-chip-list">
+      <mat-chip-list #chipList aria-label="Tag selection">
+        <mat-chip
+          *ngFor="let tag of tags"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(tag)"
+        >
+          {{ tag.nameTags }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="New Tag..."
+          #tagInput
+          [formControl]="tagCtrl"
+          [matChipInputFor]="chipList"
+          [matAutocomplete]="auto"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="add($event)"
+        />
+      </mat-chip-list>
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="selected($event)"
+      >
+        <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+          {{ tag.nameTags }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <table border="1">
+    <tbody>
+      <tr>
+        <th>
+          <div>
+            <h1>Area</h1>
+            <button class="button" (click)="areacreate()">Add Area</button>
+            <hr />
+            <div *ngFor="let area of listArea">
+              {{ listArea.indexOf(area) + 1 }} {{ area.nameArea }}
+              <button
+                class="action-button"
+                (click)="areaedit(area.areaId, area.nameArea)"
+                mat-mini-fab
+              >
+                <span><mat-icon>supervised_user_circle</mat-icon> </span>
+              </button>
+              <button
+                color="warn"
+                mat-mini-fab
+                (click)="areaDelet(area.areaId, area.nameArea)"
+              >
+                <span><mat-icon>delete</mat-icon> </span>
+              </button>
+            </div>
+          </div>
+        </th>
+        <th>
+          <div>
+            <h1>SKILLS</h1>
+            <button class="button" (click)="createSkill(data.idproject)">
+              Add Skill
+            </button>
+            <hr />
+            <div *ngFor="let skill of skills">
+              {{ skills.indexOf(skill) + 1 }} {{ skill.skillName }}
+              <button
+                class="action-button"
+                (click)="editSkill(skill.skillId, skill.skillName)"
+                mat-mini-fab
+              >
+                <span><mat-icon>supervised_user_circle</mat-icon> </span>
+              </button>
+              <button
+                color="warn"
+                mat-mini-fab
+                (click)="
+                  deleteSkill(
+                    skill.skillId,
+                    skill.skillName,
+                    skills.indexOf(skill)
+                  )
+                "
+              >
+                <span><mat-icon>delete</mat-icon> </span>
+              </button>
+            </div>
+          </div>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+  <mat-dialog-actions>
+    <button type="submit" mat-button color="primary" cdkFocusInitial>
+      Guardar
+    </button>
+
+    <button mat-button mat-raised-button color="warn" (click)="close()">
+      Cancelar
+    </button>
+  </mat-dialog-actions>
+</form> -->
