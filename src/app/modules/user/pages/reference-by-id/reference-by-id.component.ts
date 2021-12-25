@@ -26,7 +26,7 @@ export class ReferenceByIdComponent implements OnInit {
   listTags: Tag[];
   skills: Skill[];
   projectId: number;
-  userId: number = parseInt(localStorage.getItem('userId'));
+  // userId: number = parseInt(localStorage.getItem('userId'));
 
   constructor(
     private service: ReferencesService,
@@ -63,24 +63,24 @@ export class ReferenceByIdComponent implements OnInit {
   }
 
   afilarse(idproyect: number, proyect: IProjects): void {
-    const iduser = parseInt(localStorage.getItem('userId'));
-    this.Projetservse.afiliarproyect(idproyect, iduser, proyect).subscribe(
-      (projects) => {
-        console.log(projects);
-      }
-    );
-    window.alert('logrado');
+    // const iduser = parseInt(localStorage.getItem('userId'));
+    // this.Projetservse.afiliarproyect(idproyect, iduser, proyect).subscribe(
+    //   (projects) => {
+    //     console.log(projects);
+    //   }
+    // );
+    // window.alert('logrado');
   }
   loadproject(): void {
     const id = this.activatedRoute.snapshot.params.id;
-    this.service.getProject(this.userId, id).subscribe(
-      (data) => {
-        this.project = data;
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    // this.service.getProject(this.userId, id).subscribe(
+    //   (data) => {
+    //     this.project = data;
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   }
+    // );
   }
   loadSkillList(): Skill[] {
     const id = this.activatedRoute.snapshot.params.id;
@@ -96,18 +96,18 @@ export class ReferenceByIdComponent implements OnInit {
       this.media = data;
     });
   }
-  debugBase64(base64URL) {
-    const win = window.open();
-    win.document.write(
-      '<img src="' + base64URL + '" width="500" height="500"></img>'
-    );
-  }
+  // debugBase64(base64URL) {
+  //   const win = window.open();
+  //   win.document.write(
+  //     '<img src="' + base64URL + '" width="500" height="500"></img>'
+  //   );
+  // }
   conexion(): void {
     const idpr = this.activatedRoute.snapshot.params.id;
-    const iduser = parseInt(localStorage.getItem('userId'));
-    this.Projetservse.yaexiste(idpr, iduser).subscribe((data) => {
-      this.guardardata(data);
-    });
+    // const iduser = parseInt(localStorage.getItem('userId'));
+    // this.Projetservse.yaexiste(idpr, iduser).subscribe((data) => {
+    //   this.guardardata(data);
+    // });
   }
   guardardata(data: number): void {
     console.log(data);
